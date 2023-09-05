@@ -72,7 +72,7 @@ Machine Learning (ML) can predict the geographic scope of an event by examining 
 TIME SERIES ANALYSIS ON DATA
 -Time series analysis will be used to predict the sequence of data.Machine Learning(ML) can help to improve the accuracy of time series forecasting by using libraries such as:
 1 Pandas- we will use it for data manipulation and analysis.It will provide data structures like DataFrames and use it to load and preprocess dataset.
-2 Twilio- Will Alert us via SMSs about the potential risks or impact,  and predict future occurrences  of earthquake in the area of Welkom.
+2 Twilio- Will alert us via SMSes about the potential risks or impact,  and predict future occurrences  of earthquake in the area of Welkom.
 
 
  
