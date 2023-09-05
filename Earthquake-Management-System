@@ -42,9 +42,9 @@ Last but not least, using Earthquake predictor into disaster management is consi
 
 PROBLEM DEFINITION
 
-People of Welkom  are most likely to experience earthquake disaster  and this happen time to time. Community is always unaware when to expect this abnormal intensity of natural agent. What is worse is that they don’t even know how much damage will agent cause and how will they prepare themselves to survive all this trauma,so they are in need of AI solution that will help them to predict when to expect this situation 
+People of Welkom  are most likely to experience earthquake disaster  and this happen time to time. Community is always unaware when to expect this abnormal intensity of natural agent. What is worse is that they don’t even know how much damage will agent cause and how will they prepare themselves to survive all this trauma,so they are in need of AI solution that will help them to predict when to expect this situation. 
 
-This problem is relevant to the theme because our community is suffering against damages, loss of lives, emotional and mental disturbance and for them to overcome this AI solution must be implemented. Therefore we have developed AI earthquake predictor
+This problem is relevant to the theme because our community is suffering against damages, loss of lives, emotional and mental disturbance and for them to overcome this AI solution must be implemented. Therefore we have developed AI earthquake predictor.
 
 Solving this matter will be beneficial to our community because:
 
@@ -62,6 +62,19 @@ DATA
 The data will be organized or formulated so that it can be fed to the AI algorithms. After deciding on our machine learning strategy, we will proceed to pre-process the data so that it may be fed into the AI system. Data is initially presented in raw form, and in order for our model to understand it, it must first be transformed into useful data. This process is called pre-processing of data. We use three processes to handle data when developing AI in python. Step 1: Sci-kit learn will be used to normalize our data by comparing prior data with current data of our stats and specific patterns, and importing helpful packages and Numpy will be used to facilitate our mathematical operations like: how many TIMES will EARTHQUAKE occur each season in a year? 
 We chose Welkom course is the one impacted by high level of earthquake, so it will be 
 Primary target of management disaster, Step 2: Will define sample data. Step 3: Using various pre-processing approaches, we will apply binarization in our artificial intelligence system and end up using encoding where data requires to be converted from words to numerical values.
+
+MODEL
+Our model inspires the linear regression to model the relationship between earthquake magnitude and depth or location.
+Earthquake prediction model is generated using Support Vector Regression (SVR) combine with Hybrid Neural Networks (HNN).
+Applying the provided prediction method, earthquake predictions are carried out independently for the indicated areas, and the outcomes are evaluated.
+Machine Learning (ML) can predict the geographic scope of an event by examining both previously generated and newly available data and is capable of creating models that forecast the length and severity of the earthquake event.
+
+TIME SERIES ANALYSIS ON DATA
+-Time series analysis predict the sequence of data.Machine Learning(ML) can help to improve the accuracy of time series forecasting by using libraries such as:
+Pandas - Is used for data manipulation and analysis.It provides data structures like DataFrames , used it to load and preprocess dataset.
+Twilio -Alert us via SMSs about the potential risks or impact,  and predict future occurrences  of earthquake in the area of Welkom.
+
+
  
  
 
