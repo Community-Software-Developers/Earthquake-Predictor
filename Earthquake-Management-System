@@ -53,3 +53,15 @@ Solving this matter will be beneficial to our community because:
 3 low economic disruption
 4 loss of food will be reduced
 5 authorities will be prepared to act
+
+MACHINE LEARNING APPROACH
+ Our model will be trained to predict earthquake occurrence.
+We’re going to utilize a supervised machine learning technique because will be using a collection of labelled data. The dataset contains information such as time of the day, longitude and magnitude. With this dataset, the relief organizations will be depending on data that has been gathered and shared through SMSes, http requests and satellite imagery to strengthen early warning techniques.  
+  
+DATA
+The data will be organized or formulated so that it can be fed to the AI algorithms. After deciding on our machine learning strategy, we will proceed to pre-process the data so that it may be fed into the AI system. Data is initially presented in raw form, and in order for our model to understand it, it must first be transformed into useful data. This process is called pre-processing of data. We use three processes to handle data when developing AI in python. Step 1: Sci-kit learn will be used to normalize our data by comparing prior data with current data of our stats and specific patterns, and importing helpful packages and Numpy will be used to facilitate our mathematical operations like: how many TIMES will EARTHQUAKE occur each season in a year? 
+We chose Welkom course is the one impacted by high level of earthquake, so it will be 
+Primary target of management disaster, Step 2: Will define sample data. Step 3: Using various pre-processing approaches, we will apply binarization in our artificial intelligence system and end up using encoding where data requires to be converted from words to numerical values.
+ 
+ 
+
