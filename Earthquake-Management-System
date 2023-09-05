@@ -25,3 +25,17 @@ severity of earthquake disasters in Welkom. The complexity and size of modern Ea
 disasters are frequently beyond the capabilities of traditional disaster management techniques. 
 Through the use of data-driven insights, predictive modeling, and real-time decision assistance, 
 AI Earthquake Predictor has the ability to completely transform these procedures.
+
+REQUIREMENTS, CONSTRAINTS, AND RISKS:
+-REQUIREMENTS: The Earthquake predictor must be able to process and analyze large amounts of data from a variety of sources, such as sensor networks, data sets and historical records. It must deliver precise forecasts, useful insights, and assistance with decision-making. User interfaces should be simple to use and open to users of all technological backgrounds. 
+- CONSTRAINTS: In disaster-stricken areas, the effectiveness of Earthquake predictor may be constrained by a lack of compute resources and network access. Data usage and sharing ethical issues must also be addressed, as do privacy problems. 
+ - RISKS: Making judgments purely based on Earthquake predictor without human supervision may result in errors. Incorrect predictions could result from skewed training data. A focus on technology too much can overshadow the value of community involvement and local knowledge.
+
+TOOLS AND TECHNIQUES:
+- Machine learning: Creating predictive models for disaster occurrence, severity, and effect using historical data. 
+- Natural Language Processing (NLP): Examining news reports and social media to find upcoming catastrophic occurrences and gauge public opinion. 
+- Image analysis: analyzing imagery from satellites and drones to evaluate the damage and organize the best course of action. 
+- Geographical Information Systems (GIS): Using spatial data integration, GIS can be used to efficiently allocate resources, plan evacuation routes, and show the effects of disasters. 
+- Predictive Analytics: Using current data and past trends, disaster scenarios are forecast. 
+- Collaboration platforms: Creating platforms for coordination and communication between stakeholders so they may exchange news and updates. 
+Last but not least, using Earthquake predictor into disaster management is consistent with the objective of reducing the effects of disasters and saving lives. The success of such a project depends on precise forecasts, prompt reactions, and efficient cooperation amongst many parties. To ensure the appropriate and effective application of Earthquake predictor in this crucial domain, rigorous analysis of requirements, restrictions, and potential hazards is required.
