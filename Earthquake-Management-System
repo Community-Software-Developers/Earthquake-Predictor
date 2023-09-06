@@ -40,7 +40,7 @@ TOOLS AND TECHNIQUES:
 - Collaboration platforms: Creating platforms for coordination and communication between stakeholders so they may exchange news and updates. 
 Last but not least, using Earthquake predictor into disaster management is consistent with the objective of reducing the effects of disasters and saving lives. The success of such a project depends on precise forecasts, prompt reactions, and efficient cooperation amongst many parties. To ensure the appropriate and effective application of Earthquake predictor in this crucial domain, rigorous analysis of requirements, restrictions, and potential hazards is required.
 
-PROBLEM DEFINITION
+PROBLEM DEFINITION:
 
 People of Welkom  are most likely to experience earthquake disaster  and this happen time to time. Community is always unaware when to expect this abnormal intensity of natural agent. What is worse is that they don’t even know how much damage will agent cause and how will they prepare themselves to survive all this trauma,so they are in need of AI solution that will help them to predict when to expect this situation. 
 
@@ -54,22 +54,22 @@ Solving this matter will be beneficial to our community because:
 4 loss of food will be reduced
 5 authorities will be prepared to act
 
-MACHINE LEARNING APPROACH
+MACHINE LEARNING APPROACH:
  Our model will be trained to predict earthquake occurrence.
 We’re going to utilize a supervised machine learning technique because will be using a collection of labelled data. The dataset contains information such as time of the day, longitude and magnitude. With this dataset, the relief organizations will be depending on data that has been gathered and shared through SMSes, http requests and satellite imagery to strengthen early warning techniques.  
   
-DATA
+DATA:
 The data will be organized or formulated so that it can be fed to the AI algorithms. After deciding on our machine learning strategy, we will proceed to pre-process the data so that it may be fed into the AI system. Data is initially presented in raw form, and in order for our model to understand it, it must first be transformed into useful data. This process is called pre-processing of data. We use three processes to handle data when developing AI in python. Step 1: Sci-kit learn will be used to normalize our data by comparing prior data with current data of our stats and specific patterns, and importing helpful packages and Numpy will be used to facilitate our mathematical operations like: how many TIMES will EARTHQUAKE occur each season in a year? 
 We chose Welkom course is the one impacted by high level of earthquake, so it will be 
 Primary target of management disaster, Step 2: Will define sample data. Step 3: Using various pre-processing approaches, we will apply binarization in our artificial intelligence system and end up using encoding where data requires to be converted from words to numerical values.
 
-MODEL
+MODEL:
 Our model inspires the linear regression to model the relationship between earthquake magnitude and depth or location.
 Earthquake prediction model is generated using Support Vector Regression (SVR) combine with Hybrid Neural Networks (HNN).
 Applying the provided prediction method, earthquake predictions are carried out independently for the indicated areas, and the outcomes are evaluated.
 Machine Learning (ML) can predict the geographic scope of an event by examining both previously generated and newly available data and is capable of creating models that forecast the length and severity of the earthquake event.
 
-TIME SERIES ANALYSIS ON DATA
+TIME SERIES ANALYSIS ON DATA:
 -Time series analysis will be used to predict the sequence of data.Machine Learning(ML) can help to improve the accuracy of time series forecasting by using libraries such as:
 1 Pandas- we will use it for data manipulation and analysis.It will provide data structures like DataFrames and use it to load and preprocess dataset.
 2 Twilio- Will alert us via SMSes about the potential risks or impact,  and predict future occurrences  of earthquake in the area of Welkom.
@@ -86,13 +86,13 @@ sentence planning/lexical choice by using appropriate words that convey the mean
 Our earthquake predictor model will use English because it is the most understandable language. We trained the algorithm to detect, in real-time, whether it's noise or an earthquake by 
 analyzing patterns in seismic activity, geological data, and other factors to identify the probability of an earthquake occurring.
 
-DEEP LEARNING  
+DEEP LEARNING:  
      
 CNNs are commonly used for image analysis, including seismic image analysis. They will be applied to seismic data to identify patterns, fault lines, and geological features that might be indicative of potential earthquake activity.  
 Long Short-Term Memory(LSTM) networks or Convolutional Neural Networks(CNNs) will be used to analyse historical meteorological data, oceanic conditions, and atmospheric  patterns   
 Graph Neural Networks (GNNs): GNNs will used to analyze data structured as graphs, which can represent interconnected seismic sensors or fault networks. GNNs will enable the modeling of relationships between different elements in the data, aiding in earthquake risk assessment.  
    
-MULTI-LAYER PERCEPTION 
+MULTI-LAYER PERCEPTION:
    
 We will use it in different stages such as prediction classification, and decisionmaking.   
 It will be used to classify the type of disaster based on the input data such as satellite images, weather patterns, or sensor readings.   
@@ -101,7 +101,7 @@ Multi-layer perception will be used to predict the likelihood of disaster occurr
 Damage assessment- After disaster, an MLP will analyse images or sensor data to assess the extent of damage. The MLP will also be trained to access the level of damage that was done to the infrastructure and other essential things.   
 MLPs will then process social media data to extract real-time information about disaster impacts, public sentiment, and requests for help. This crucial information will then inform us about what is happening on the ground and help authorities making informed decisions.
 
-MAPS 
+MAPS: 
   
 Disaster warning system to detect the hotspot for Earthquake disasters, by using Google maps.  
 Google maps will show pictures and videos of the hotspot for natural disasters.   
