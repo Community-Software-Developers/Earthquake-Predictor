@@ -1,0 +1,226 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Load the dataset
+df = pd.read_csv('Earthquake_Data.csv', delimiter=r'\s+')
+df
+
+# Rename columns for clarity
+new_column_names = ["Date(YYYY/MM/DD)", "Time(UTC)", "Latitude(deg)", "Longitude(deg)", "Depth(km)", "Magnitude(ergs)", 
+                    "Magnitude_type", "No_of_Stations", "Gap", "Close", "RMS", "SRC", "EventID"]
+df.columns = new_column_names
+
+# Convert date and time columns to datetime
+df['Timestamp'] = pd.to_datetime(df["Date(YYYY/MM/DD)"] + " " + df["Time(UTC)"])
+
+# Drop unnecessary columns
+columns_to_drop = ["Date(YYYY/MM/DD)", "Time(UTC)", "EventID"]
+df = df.drop(columns=columns_to_drop)
+
+# Set the Timestamp column as the index
+df.set_index('Timestamp', inplace=True)
+
+# Handle Missing Values (if any)
+df.dropna(inplace=True)  # Drop rows with missing values
+# Or use imputation methods like df.fillna() to fill missing values
+
+# Feature Scaling
+scaler = StandardScaler()
+df[['Latitude(deg)', 'Longitude(deg)', 'Depth(km)', 'No_of_Stations']] = scaler.fit_transform(df[['Latitude(deg)', 'Longitude(deg)', 'Depth(km)', 'No_of_Stations']])
+
+# Feature Engineering
+df['Hour'] = df.index.hour  # Extract hour from the timestamp
+df['Month'] = df.index.month  # Extract month from the timestamp
+df['Distance_from_Equator'] = abs(df['Latitude(deg)'])  # Create a new feature
+
+# Drop original features that are no longer needed
+df = df[['Magnitude(ergs)', 'No_of_Stations', 'Hour', 'Month', 'Distance_from_Equator' ]]
+
+X = df.drop('Magnitude(ergs)', axis=1)  # Use all features except the target
+y = df['Magnitude(ergs)']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+df
+
+
+##MACHINE LEARNING ALGORITHMS
+
+
+#1. RANDOM FORESTREGRESSON
+from sklearn.ensemble import RandomForestRegressor
+rf_regressor = RandomForestRegressor(n_estimators=100, random_state=42)
+rf_regressor.fit(X_train, y_train)
+y_pred_rf = rf_regressor.predict(X_test)
+mse_rf = mean_squared_error(y_test, y_pred_rf)
+r2_rf = r2_score(y_test, y_pred_rf)
+print("Random Forest Regression MSE:", mse_rf)
+print("Random Forest Regression R^2:", r2_rf)
+
+#PLOT RANDOM TREE
+import matplotlib.pyplot as plt
+# Assuming you have trained Random Forest and SVM regressors and obtained predictions
+plt.figure(figsize=(10, 6))
+plt.scatter(y_test, y_pred_rf, label='Random Forest Predictions', alpha=0.6)
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--', linewidth=2)
+plt.xlabel('Actual Magnitude')
+plt.ylabel('Predicted Magnitude')
+plt.title('Random Forest Model Predictions')
+plt.legend()
+plt.show()
+
+
+#PLOT 
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestRegressor
+# Calculate feature importances
+feature_importances = rf_regressor.feature_importances_
+# Create a DataFrame to store feature importances
+importance_df = pd.DataFrame({'Feature': X_train.columns, 'Importance': feature_importances})
+# Sort the DataFrame by importance
+importance_df = importance_df.sort_values(by='Importance', ascending=False)
+# Plot feature importance
+plt.figure(figsize=(10, 6))
+plt.barh(importance_df['Feature'], importance_df['Importance'])
+plt.xlabel('Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importance')
+plt.show()
+
+
+import numpy as np
+from sklearn.model_selection import cross_val_score
+# Perform cross-validation
+num_folds = 5  # Number of folds in cross-validation
+scoring_metric = 'neg_mean_squared_error'  # Metric to use for scoring
+# Perform cross-validation and get the cross-validated scores
+cv_scores = cross_val_score(rf_regressor, X_train, y_train, cv=num_folds, scoring=scoring_metric)
+# Convert the negative MSE scores to positive values
+cv_scores = -cv_scores
+# Print the cross-validated scores for each fold
+for fold_num, score in enumerate(cv_scores, start=1):
+    print(f"Fold {fold_num} MSE: {score:.2f}")
+# Calculate the mean and standard deviation of the cross-validated scores
+mean_cv_score = np.mean(cv_scores)
+std_cv_score = np.std(cv_scores)
+print(f"Mean MSE: {mean_cv_score:.2f}")
+print(f"Standard Deviation of MSE: {std_cv_score:.2f}")
+
+
+#2.SVM
+from sklearn.svm import SVR
+from sklearn.metrics import mean_squared_error, r2_score
+svm_regressor = SVR(kernel='rbf')
+svm_regressor.fit(X_train, y_train)
+y_pred_svm = svm_regressor.predict(X_test)
+mse_svm = mean_squared_error(y_test, y_pred_svm)
+r2_svm = r2_score(y_test, y_pred_svm)
+print("SVM Regression MSE:", mse_svm)
+print("SVM Regression R^2:", r2_svm)
+
+#PLOT SVM
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10, 6))
+plt.scatter(y_test, y_pred_svm, label='SVM Predictions', alpha=0.6)
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--', linewidth=2)
+plt.xlabel('Actual Magnitude')
+plt.ylabel('Predicted Magnitude')
+plt.title('SVM Model Predictions')
+plt.legend()
+plt.show()
+
+
+
+plt.figure(figsize=(10, 6))
+plt.scatter(y_pred_rf, y_test - y_pred_rf, alpha=0.6)
+plt.axhline(y=0, color='red', linestyle='--')
+plt.xlabel('Predicted Magnitude')
+plt.ylabel('Residual')
+plt.title('Residual Plot')
+plt.show()
+
+
+
+#3.GRADIENTBOOSTING
+from sklearn.ensemble import GradientBoostingRegressor
+gb_regressor = GradientBoostingRegressor(n_estimators=100, random_state=42)
+gb_regressor.fit(X_train, y_train)
+y_pred_gb = gb_regressor.predict(X_test)
+mse_gb = mean_squared_error(y_test, y_pred_gb)
+r2_gb = r2_score(y_test, y_pred_gb)
+print("Gradient Boosting Regression MSE:", mse_gb)
+print("Gradient Boosting Regression R^2:", r2_gb)
+
+#4.NUERALNETWORKS
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import Adam
+model = Sequential()
+model.add(Dense(64, activation='relu', input_shape=(X_train.shape[1],)))
+model.add(Dense(32, activation='relu'))
+model.add(Dense(1))  # Output layer for regression
+model.compile(loss='mean_squared_error', optimizer=Adam(learning_rate=0.001))
+model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.1)
+y_pred_nn = model.predict(X_test)
+mse_nn = mean_squared_error(y_test, y_pred_nn)
+r2_nn = r2_score(y_test, y_pred_nn)
+print("Neural Network MSE:", mse_nn)
+print("Neural Network R^2:", r2_nn)
+
+# Scatter plot for comparing predictions
+plt.figure(figsize=(10, 6))
+plt.scatter(y_test, y_pred_rf, label='Random Forest Predictions', alpha=0.6)
+plt.scatter(y_test, y_pred_svm, label='SVM Predictions', alpha=0.6)
+plt.scatter(y_test, y_pred_gb, label='Gradient Boosting Predictions', alpha=0.6)
+plt.scatter(y_test, y_pred_nn, label='Neural Network Predictions', alpha=0.6)
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--', linewidth=2)
+plt.xlabel('Actual Magnitude')
+plt.ylabel('Predicted Magnitude')
+plt.title('Regression Model Predictions')
+plt.legend()
+plt.show()
+
+# Residual plots for each model
+for y_pred, model_name in [(y_pred_rf, 'Random Forest'), (y_pred_svm, 'SVM'),
+                           (y_pred_gb, 'Gradient Boosting'), (y_pred_nn, 'Neural Network')]:
+    residual_plot(y_pred, y_test - y_pred, title=f'Residual Plot for {model_name}')
+    plt.show()
+
+
+
+from twilio.rest import Client
+# Twilio credentials
+account_sid = 'AC347c4ccb1466d9d9a044e1f17b5ad197'
+auth_token = 'b1bede7c9e94133f5b5731f3d514dc94'
+sender_phone = '+19403503128'
+receiver_phone = '+27684649594'
+
+# Threshold for triggering the alert
+threshold_magnitude = 7.0
+
+# Sample values for the new data features
+new_no_of_stations = 15.0
+new_hour = 10
+new_month = 5
+new_distance_from_equator = 10.0
+new_data = np.array([[new_no_of_stations, new_hour, new_month, new_distance_from_equator]])
+
+# Predict magnitude using your model
+predicted_magnitude = model.predict(new_data)
+
+# Check if the predicted magnitude crosses the threshold
+if predicted_magnitude > threshold_magnitude:
+    # Initialize Twilio client
+    client = Client(account_sid, auth_token)
+
+    # Compose the alert message
+    alert_message = f"Earthquake Alert: Predicted magnitude is {predicted_magnitude:.2f}"
+
+    # Send SMS alert
+    message = client.messages.create(
+        body=alert_message,
+        from_=sender_phone,
+        to=receiver_phone
+    )
+    print("Alert Sent!")
+else:
+    print("No alert triggered.")
