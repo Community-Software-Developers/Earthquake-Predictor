@@ -105,7 +105,7 @@ For regression tasks, SVM uses a similar approach but instead of a hyperplane, i
   <li>Mean squared error (MSE): 0.53166</li>
   <li>R-squared (R2) score: -1.92129</li>
 </ul>
-
+<br>
 <p>We also applied some common practices like feature scaling, feature engineering, cross-validation, and visualizations to preprocess our data and evaluate our models effectively.</p>
 
 <p>Overall, we employed a mix of ensemble methods (Random Forest and Gradient Boosting), a traditional machine learning algorithm (SVM), and deep learning (Neural Network) to tackle the earthquake magnitude prediction problem, which provides a comprehensive approach to regression tasks with varying levels of complexity and model flexibility.</p>
