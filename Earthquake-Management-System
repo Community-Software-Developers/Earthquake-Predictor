@@ -74,7 +74,15 @@ TIME SERIES ANALYSIS ON DATA
 1 Pandas- we will use it for data manipulation and analysis.It will provide data structures like DataFrames and use it to load and preprocess dataset.
 2 Twilio- Will alert us via SMSes about the potential risks or impact,  and predict future occurrences  of earthquake in the area of Welkom.
 
+SOLUTION TECHNIQUE:
+Techniques that our model is using to improve its accuracy are image analysis, GIS, collaboration platform, machine learning, and predictive analytics by scanning through social media 
+posts and news to find topics about earthquake occurrence.
+This will solve the problem of communities facing unexpected earthquake incidents since they will get warning to evacuate to safer places in time.
 
- 
- 
+NATURAL LANGUAGE PROCESSING:
+Human language is difficult for computer programs to understand, so we used natural language processing and its components, NLU and NLG to break down human text and voice data (inputs) 
+to make sense of it in a way a computer can understand, with NLG producing meaningful phrases and sentences in the form of natural language from some internal representation such as 
+sentence planning/lexical choice by using appropriate words that convey the meaning.
+Our earthquake predictor model will use English because it is the most understandable language. We trained the algorithm to detect, in real-time, whether it's noise or an earthquake by 
+analyzing patterns in seismic activity, geological data, and other factors to identify the probability of an earthquake occurring.
 
