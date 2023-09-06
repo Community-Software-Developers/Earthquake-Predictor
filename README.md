@@ -3,9 +3,9 @@
 A project done for the course Business Analysis - under MALEFETSANE MATSELA
 
 Team members
-PM MAHLOBOGOANE
-N MABODI
-RP CHAUKE
+*PM MAHLOBOGOANE
+*N MABODI
+*RP CHAUKE
 TP PHEKO
 J SAMBO
 C SAMBO
