@@ -86,13 +86,13 @@ sentence planning/lexical choice by using appropriate words that convey the mean
 Our earthquake predictor model will use English because it is the most understandable language. We trained the algorithm to detect, in real-time, whether it's noise or an earthquake by 
 analyzing patterns in seismic activity, geological data, and other factors to identify the probability of an earthquake occurring.
 
-Deep Learning   
+DEEP LEARNING  
      
 CNNs are commonly used for image analysis, including seismic image analysis. They will be applied to seismic data to identify patterns, fault lines, and geological features that might be indicative of potential earthquake activity.  
 Long Short-Term Memory(LSTM) networks or Convolutional Neural Networks(CNNs) will be used to analyse historical meteorological data, oceanic conditions, and atmospheric  patterns   
 Graph Neural Networks (GNNs): GNNs will used to analyze data structured as graphs, which can represent interconnected seismic sensors or fault networks. GNNs will enable the modeling of relationships between different elements in the data, aiding in earthquake risk assessment.  
    
-Multi-layer perception  
+MULTI-LAYER PERCEPTION 
    
 We will use it in different stages such as prediction classification, and decisionmaking.   
 It will be used to classify the type of disaster based on the input data such as satellite images, weather patterns, or sensor readings.   
@@ -101,7 +101,7 @@ Multi-layer perception will be used to predict the likelihood of disaster occurr
 Damage assessment- After disaster, an MLP will analyse images or sensor data to assess the extent of damage. The MLP will also be trained to access the level of damage that was done to the infrastructure and other essential things.   
 MLPs will then process social media data to extract real-time information about disaster impacts, public sentiment, and requests for help. This crucial information will then inform us about what is happening on the ground and help authorities making informed decisions.
 
-Maps  
+MAPS 
   
 Disaster warning system to detect the hotspot for Earthquake disasters, by using Google maps.  
 Google maps will show pictures and videos of the hotspot for natural disasters.   
